@@ -1,11 +1,18 @@
 [
   {
     "word": "makan",
-    "definition": "kegiatan memasukkan makanan ke dalam mulut dan menelannya.",
+    "definition": "kegiatan memasukkan makanan ke dalam mulut dan menelannya untuk memenuhi kebutuhan gizi atau sekadar menikmati.",
     "examples": [
-      "Saya sedang makan nasi di dapur.",
-      "Dia makan siang bersama temannya.",
-      "Kami makan malam di restoran."
+      "Saya sedang makan nasi goreng di dapur.",
+      "Dia makan siang bersama temannya di kantin.",
+      "Kami makan malam di restoran favorit kami tadi malam.",
+      "Anak-anak suka makan es krim setelah bermain.",
+      "Kapan terakhir kali kamu makan makanan pedas?",
+      "Setiap pagi, saya makan roti gandum dan minum kopi.",
+      "Mereka makan bersama di acara keluarga besar.",
+      "Saya perlu makan sesuatu sebelum minum obat.",
+      "Kamu sudah makan malam, Tuan?",
+      "Jangan lupa makan makanan sehat ya."
     ],
     "pos": "verb",
     "category": "kegiatan",
@@ -13,11 +20,18 @@
   },
   {
     "word": "minum",
-    "definition": "kegiatan memasukkan cairan ke dalam mulut dan menelannya.",
+    "definition": "kegiatan memasukkan cairan ke dalam mulut dan menelannya untuk menghidrasi tubuh atau menikmati rasa.",
     "examples": [
-      "Dia minum air putih setelah lari.",
-      "Kami minum teh sambil berbincang.",
-      "Anak itu minum susu setiap pagi."
+      "Dia minum air putih setelah lari maraton.",
+      "Kami minum teh hangat sambil berbincang seru.",
+      "Anak itu minum susu setiap pagi sebelum sekolah.",
+      "Saya lebih suka minum kopi daripada teh.",
+      "Pastikan kamu minum cukup air sepanjang hari.",
+      "Dia minum jus jeruk segar di pagi hari.",
+      "Mereka minum bir dingin saat pesta.",
+      "Apakah kamu mau minum sesuatu, Tuan?",
+      "Setelah makan, saya selalu minum segelas air.",
+      "Saya tidak bisa minum obat tanpa air."
     ],
     "pos": "verb",
     "category": "kegiatan",
@@ -25,11 +39,18 @@
   },
   {
     "word": "lari",
-    "definition": "bergerak cepat dengan kaki secara bergantian.",
+    "definition": "bergerak cepat dengan kaki secara bergantian, biasanya untuk olahraga, rekreasi, atau mencapai tujuan dengan cepat.",
     "examples": [
-      "Dia lari di pagi hari.",
-      "Mereka lari mengelilingi lapangan.",
-      "Saya suka lari untuk olahraga."
+      "Dia lari di pagi hari mengelilingi taman kota.",
+      "Mereka lari mengelilingi lapangan sepak bola.",
+      "Saya suka lari untuk olahraga dan menjaga kesehatan.",
+      "Anak-anak lari kencang mengejar layangan.",
+      "Ayo lari pagi besok, Tuan!",
+      "Dia lari dari kejaran anjing yang galak.",
+      "Tim estafet itu lari sangat cepat.",
+      "Setelah lari, saya merasa lebih segar.",
+      "Berapa kilometer kamu lari hari ini?",
+      "Dia harus lari mengejar kereta."
     ],
     "pos": "verb",
     "category": "kegiatan",
@@ -37,11 +58,18 @@
   },
   {
     "word": "belajar",
-    "definition": "proses memperoleh pengetahuan atau keterampilan.",
+    "definition": "proses memperoleh pengetahuan, keterampilan, atau pemahaman baru melalui studi, pengalaman, atau pengajaran.",
     "examples": [
-      "Saya belajar bahasa pemrograman setiap hari.",
-      "Dia belajar untuk ujian matematika.",
-      "Kami belajar bersama di perpustakaan."
+      "Saya belajar bahasa pemrograman D setiap hari.",
+      "Dia belajar untuk ujian matematika besok.",
+      "Kami belajar bersama di perpustakaan kampus.",
+      "Anak itu belajar membaca dan menulis di sekolah.",
+      "Saya suka belajar hal-hal baru yang menantang.",
+      "Dia belajar memasak dari resep neneknya.",
+      "Mereka belajar musik di sanggar seni.",
+      "Apakah Tuan sedang belajar bahasa baru?",
+      "Belajar itu penting untuk masa depan.",
+      "Saya belajar dari setiap kesalahan yang saya buat."
     ],
     "pos": "verb",
     "category": "aktivitas",
@@ -49,11 +77,18 @@
   },
   {
     "word": "tidur",
-    "definition": "keadaan istirahat dengan mata tertutup dan kesadaran berkurang.",
+    "definition": "keadaan istirahat alami dengan mata tertutup dan kesadaran berkurang, penting untuk pemulihan fisik dan mental.",
     "examples": [
-      "Saya tidur pukul sepuluh malam.",
-      "Anak itu sudah tidur sejak tadi.",
-      "Dia tidur siang setelah makan."
+      "Saya tidur pukul sepuluh malam setiap hari.",
+      "Anak itu sudah tidur pulas sejak tadi sore.",
+      "Dia tidur siang sebentar setelah makan.",
+      "Saya butuh tidur delapan jam sehari.",
+      "Jangan tidur terlalu larut ya, Tuan.",
+      "Kucing itu tidur di pangkuan saya.",
+      "Mereka tidur di tenda saat berkemah.",
+      "Dia tidur dengan nyenyak semalam.",
+      "Saya tidak bisa tidur kalau terlalu banyak kafein.",
+      "Selamat tidur, Tuan."
     ],
     "pos": "verb",
     "category": "istirahat",
@@ -61,11 +96,18 @@
   },
   {
     "word": "main",
-    "definition": "melakukan aktivitas untuk hiburan atau kesenangan.",
+    "definition": "melakukan aktivitas untuk hiburan, kesenangan, atau rekreasi, seringkali melibatkan permainan atau interaksi.",
     "examples": [
-      "Anak-anak main bola di lapangan.",
-      "Kami main kartu di rumah.",
-      "Dia main gitar setiap sore."
+      "Anak-anak main bola di lapangan dekat rumah.",
+      "Kami main kartu UNO di rumah teman.",
+      "Dia main gitar akustik setiap sore.",
+      "Mari kita main game online bersama, Tuan.",
+      "Saya suka main catur di waktu luang.",
+      "Mereka main petak umpet di halaman belakang.",
+      "Dia main peran dalam drama sekolah.",
+      "Main itu penting juga untuk melepas penat.",
+      "Jangan terlalu serius, kadang perlu main juga.",
+      "Anjing itu suka main lempar tangkap."
     ],
     "pos": "verb",
     "category": "hiburan",
@@ -73,11 +115,18 @@
   },
   {
     "word": "guru",
-    "definition": "orang yang memberikan pelajaran atau pendidikan.",
+    "definition": "orang yang memberikan pelajaran atau pendidikan, membimbing dan mendidik siswa atau murid.",
     "examples": [
-      "Guru itu mengajar dengan sabar.",
-      "Saya bertanya kepada guru tentang tugas.",
-      "Guru sejarah menjelaskan masa kolonial."
+      "Guru itu mengajar dengan sabar dan penuh dedikasi.",
+      "Saya bertanya kepada guru tentang tugas matematika.",
+      "Guru sejarah menjelaskan masa kolonial dengan detail.",
+      "Guru adalah pahlawan tanpa tanda jasa.",
+      "Dia bercita-cita menjadi guru bahasa Inggris.",
+      "Seorang guru yang baik selalu memotivasi muridnya.",
+      "Para guru sedang mengadakan rapat di sekolah.",
+      "Guru saya sangat inspiratif.",
+      "Kami sangat menghormati guru-guru kami.",
+      "Dia belajar banyak dari guru lesnya."
     ],
     "pos": "noun",
     "category": "profesi",
@@ -85,11 +134,18 @@
   },
   {
     "word": "teman",
-    "definition": "orang yang dikenal dekat dan biasanya memiliki hubungan akrab.",
+    "definition": "orang yang dikenal dekat dan biasanya memiliki hubungan akrab, saling mendukung dan berbagi cerita.",
     "examples": [
-      "Saya pergi ke bioskop bersama teman.",
-      "Teman saya sangat baik dan lucu.",
-      "Kami berbagi cerita dengan teman dekat."
+      "Saya pergi ke bioskop bersama teman-teman saya.",
+      "Teman saya sangat baik, lucu, dan selalu ada untuk saya.",
+      "Kami berbagi cerita dengan teman dekat di kafe.",
+      "Dia punya banyak teman di sekolah barunya.",
+      "Seorang teman sejati selalu mendukungmu.",
+      "Ayo ajak teman-teman kita jalan-jalan, Tuan.",
+      "Saya bertemu teman lama di pusat perbelanjaan.",
+      "Dia selalu mendengarkan keluh kesah temannya.",
+      "Penting punya teman yang bisa dipercaya.",
+      "Kami merayakan ulang tahun teman kami bersama."
     ],
     "pos": "noun",
     "category": "sosial",
@@ -97,11 +153,18 @@
   },
   {
     "word": "sedih",
-    "definition": "perasaan tidak bahagia karena sesuatu yang menyakitkan atau mengecewakan.",
+    "definition": "perasaan tidak bahagia atau duka karena sesuatu yang menyakitkan, mengecewakan, atau kehilangan.",
     "examples": [
-      "Saya merasa sedih karena kehilangan kucing.",
-      "Dia tampak sedih hari ini.",
-      "Kami mencoba menghibur teman yang sedang sedih."
+      "Saya merasa sedih karena kehilangan kucing peliharaan.",
+      "Dia tampak sedih hari ini setelah mendengar berita itu.",
+      "Kami mencoba menghibur teman yang sedang sedih.",
+      "Film itu sangat sedih sampai membuatku menangis.",
+      "Kenapa Tuan terlihat sedih? Ada yang bisa Caee bantu?",
+      "Dia merasa sedih karena gagal dalam ujian.",
+      "Jangan biarkan perasaan sedih berlarut-larut.",
+      "Musik ini membuat suasana hatiku jadi sedih.",
+      "Kami semua ikut sedih mendengar kabar buruk itu.",
+      "Dia mencoba menyembunyikan rasa sedihnya."
     ],
     "pos": "adjective",
     "category": "emosi",
@@ -109,11 +172,18 @@
   },
   {
     "word": "senang",
-    "definition": "perasaan bahagia dan puas.",
+    "definition": "perasaan bahagia, puas, atau gembira karena suatu hal yang menyenangkan atau berhasil.",
     "examples": [
-      "Saya merasa senang bisa bertemu kamu.",
-      "Mereka senang bermain bersama.",
-      "Senang rasanya mendengar kabar baik."
+      "Saya merasa senang bisa bertemu kamu lagi, Tuan.",
+      "Mereka senang sekali bermain bersama di taman.",
+      "Senang rasanya mendengar kabar baik dari keluarga.",
+      "Saya sangat senang dengan hasil kerjaku hari ini.",
+      "Apakah Tuan senang dengan progres chatbot ini?",
+      "Dia terlihat senang saat menerima hadiah.",
+      "Kami senang bisa membantu orang lain.",
+      "Perasaan senang itu menular lho.",
+      "Saya akan sangat senang jika proyek ini berhasil.",
+      "Anak-anak senang sekali pergi ke kebun binatang."
     ],
     "pos": "adjective",
     "category": "emosi",
@@ -121,11 +191,18 @@
   },
   {
     "word": "tidak",
-    "definition": "kata yang digunakan untuk menyatakan penolakan atau kebalikan.",
+    "definition": "kata yang digunakan untuk menyatakan penolakan, negasi, atau kebalikan dari suatu pernyataan atau kondisi.",
     "examples": [
-      "Saya tidak suka hujan.",
-      "Dia tidak datang kemarin.",
-      "Mereka tidak bermain di luar."
+      "Saya tidak suka hujan deras saat bepergian.",
+      "Dia tidak datang ke pesta kemarin malam.",
+      "Mereka tidak bermain di luar karena cuaca buruk.",
+      "Itu tidak benar, Tuan.",
+      "Saya tidak tahu jawaban pertanyaan itu.",
+      "Dia tidak punya waktu untuk hal-hal sepele.",
+      "Kami tidak akan menyerah begitu saja.",
+      "Ini tidak mudah, tapi saya akan mencobanya.",
+      "Saya tidak mengerti apa yang kamu maksud.",
+      "Apakah kamu tidak lelah, Tuan?"
     ],
     "pos": "negation",
     "category": "fungsi",
@@ -133,11 +210,18 @@
   },
   {
     "word": "tinggal",
-    "definition": "berada atau menetap di suatu tempat untuk sementara atau lama.",
+    "definition": "berada atau menetap di suatu tempat untuk sementara atau jangka waktu yang lama.",
     "examples": [
-      "Saya tinggal di Yogyakarta.",
-      "Dia tinggal bersama keluarga.",
-      "Kami ingin tinggal dekat sekolah."
+      "Saya tinggal di Yogyakarta bersama keluarga.",
+      "Dia tinggal bersama orang tuanya di desa.",
+      "Kami ingin tinggal dekat sekolah anak-anak.",
+      "Sudah berapa lama Tuan tinggal di Surakarta?",
+      "Burung-burung itu tinggal di pohon besar.",
+      "Dia tinggal sendiri di apartemen kecil.",
+      "Mereka memutuskan untuk tinggal di luar negeri.",
+      "Saya tidak bisa tinggal diam melihat masalah ini.",
+      "Tinggal di kota besar punya banyak keuntungan.",
+      "Dimana kamu tinggal sekarang?"
     ],
     "pos": "verb",
     "category": "habitasi",
@@ -145,11 +229,18 @@
   },
   {
     "word": "kerja",
-    "definition": "melakukan aktivitas untuk mendapatkan penghasilan atau tujuan tertentu.",
+    "definition": "melakukan aktivitas fisik atau mental untuk mendapatkan penghasilan, mencapai tujuan, atau menyelesaikan tugas.",
     "examples": [
-      "Dia kerja di kantor.",
-      "Saya mulai kerja pagi hari.",
-      "Mereka bekerja sama dalam tim."
+      "Dia kerja di kantor dari pagi sampai sore.",
+      "Saya mulai kerja pagi hari dengan semangat.",
+      "Mereka bekerja sama dalam tim untuk menyelesaikan proyek.",
+      "Kerja keras itu penting untuk meraih sukses.",
+      "Apakah Tuan akan kerja lembur malam ini?",
+      "Dia kerja sebagai programmer di perusahaan teknologi.",
+      "Kami sedang kerja bakti membersihkan lingkungan.",
+      "Kerja kelompok itu lebih efektif.",
+      "Saya tidak bisa kerja kalau perut lapar.",
+      "Dia kerja keras demi keluarga."
     ],
     "pos": "verb",
     "category": "kegiatan",
@@ -157,11 +248,18 @@
   },
   {
     "word": "baca",
-    "definition": "melihat dan memahami tulisan yang tertulis.",
+    "definition": "melihat dan memahami tulisan yang tertulis, biasanya dari buku, koran, atau layar.",
     "examples": [
-      "Saya baca buku sejarah.",
-      "Dia suka baca koran.",
-      "Mereka membaca puisi di kelas."
+      "Saya baca buku sejarah setiap malam.",
+      "Dia suka baca koran di pagi hari.",
+      "Mereka membaca puisi di kelas sastra.",
+      "Tuan sedang baca apa sekarang?",
+      "Saya bisa baca tulisan Jepang sedikit.",
+      "Dia membaca peta untuk menemukan jalan.",
+      "Kami baca buku-buku baru di perpustakaan.",
+      "Siswa diminta baca bab ini untuk besok.",
+      "Penting untuk baca instruksi dengan teliti.",
+      "Saya baca novel itu sampai selesai."
     ],
     "pos": "verb",
     "category": "kegiatan",
@@ -169,14 +267,306 @@
   },
   {
     "word": "tulis",
-    "definition": "membuat tulisan menggunakan alat tulis.",
+    "definition": "membuat tulisan atau simbol menggunakan alat tulis di permukaan, atau menyusun kata-kata menjadi teks.",
     "examples": [
-      "Saya menulis surat.",
-      "Dia suka menulis cerita.",
-      "Kami menulis catatan di kelas."
+      "Saya menulis surat untuk teman lama.",
+      "Dia suka menulis cerita fiksi ilmiah.",
+      "Kami menulis catatan penting di kelas.",
+      "Tuan sedang menulis kode program ya?",
+      "Dia menulis lagu baru setiap bulan.",
+      "Saya harus menulis laporan untuk bos.",
+      "Anak itu belajar menulis huruf abjad.",
+      "Menulis adalah cara yang bagus untuk mengekspresikan diri.",
+      "Dia menulis di blog pribadinya.",
+      "Bisakah kamu menuliskan namamu di sini?"
     ],
     "pos": "verb",
     "category": "kegiatan",
     "weight": 0.9
+  },
+  {
+    "word": "komputer",
+    "definition": "perangkat elektronik yang dapat memproses data, melakukan perhitungan, dan menyimpan informasi.",
+    "examples": [
+      "Saya menghabiskan banyak waktu di depan komputer setiap hari.",
+      "Komputer saya menggunakan sistem operasi Linux Ubuntu.",
+      "Dia sedang belajar cara merakit komputer sendiri.",
+      "Perusahaan itu membutuhkan banyak ahli komputer.",
+      "Apakah Tuan akan membeli komputer baru?",
+      "Komputer ini sering hang karena RAM-nya kecil.",
+      "Kami menggunakan komputer untuk bekerja dan bermain.",
+      "Perangkat lunak ini hanya bisa jalan di komputer.",
+      "Era digital tidak bisa lepas dari komputer.",
+      "Dia memperbaiki komputer yang rusak."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 1.0
+  },
+  {
+    "word": "kode",
+    "definition": "serangkaian instruksi atau simbol yang ditulis dalam bahasa pemrograman untuk membuat program komputer.",
+    "examples": [
+      "Saya suka menulis kode dalam bahasa Dlang.",
+      "Dia sedang debug kode yang error.",
+      "Kami belajar bagaimana menulis kode yang bersih.",
+      "Apakah Tuan sedang menulis kode untuk proyek baru?",
+      "Kode ini sangat efisien dan cepat.",
+      "Kesalahan kecil bisa merusak seluruh kode.",
+      "Dia menghabiskan malam untuk menulis kode.",
+      "Mempelajari cara menulis kode itu menantang.",
+      "Tim saya sedang meninjau kode ini.",
+      "Ada bug di dalam kode ini."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 1.0
+  },
+  {
+    "word": "linux",
+    "definition": "sistem operasi open source yang banyak digunakan oleh programmer dan server.",
+    "examples": [
+      "Laptop saya menggunakan Linux Ubuntu 24 LTS.",
+      "Saya lebih suka Linux daripada Windows untuk pengembangan.",
+      "Dia ahli dalam mengelola server Linux.",
+      "Apakah Tuan juga pengguna Linux?",
+      "Banyak perusahaan besar menggunakan Linux.",
+      "Saya belajar banyak tentang command line di Linux.",
+      "Komunitas Linux sangat aktif dan membantu.",
+      "Linux memberikan kebebasan kustomisasi yang tinggi.",
+      "Dia menginstal Linux di semua komputernya.",
+      "Sistem operasi Linux sangat stabil."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 1.0
+  },
+  {
+    "word": "ubuntu",
+    "definition": "distribusi Linux yang populer, dikenal karena kemudahan penggunaan dan dukungan komunitas yang besar.",
+    "examples": [
+      "Saya menggunakan Ubuntu 24 LTS di laptop saya.",
+      "Ubuntu adalah pilihan yang bagus untuk pemula Linux.",
+      "Dia menginstal Ubuntu di virtual machine.",
+      "Apakah Tuan juga familiar dengan Ubuntu?",
+      "Banyak aplikasi open source tersedia di Ubuntu.",
+      "Saya suka tampilan desktop default Ubuntu.",
+      "Update sistem Ubuntu sangat mudah.",
+      "Ubuntu sering dipakai untuk pengembangan perangkat lunak.",
+      "Dia migrasi dari Windows ke Ubuntu.",
+      "Komunitas pengguna Ubuntu sangat aktif."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 1.0
+  },
+  {
+    "word": "program",
+    "definition": "serangkaian instruksi yang ditulis untuk komputer agar melakukan tugas tertentu.",
+    "examples": [
+      "Saya sedang membuat program chatbot sederhana.",
+      "Dia belajar bagaimana membuat program game.",
+      "Program ini sangat membantu pekerjaan saya.",
+      "Apakah Tuan sedang mengembangkan program baru?",
+      "Program antivirus melindungi komputer dari virus.",
+      "Kami menggunakan program ini untuk analisis data.",
+      "Debugging adalah bagian penting dalam membuat program.",
+      "Dia menulis program dari nol.",
+      "Program ini membutuhkan lebih banyak RAM.",
+      "Saya mendownload program baru."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 1.0
+  },
+  {
+    "word": "data",
+    "definition": "fakta atau informasi mentah yang dikumpulkan dan diolah untuk tujuan tertentu.",
+    "examples": [
+      "Kami sedang menganalisis data penjualan bulanan.",
+      "Penting untuk menjaga keamanan data pribadi.",
+      "Dia mengumpulkan data dari berbagai sumber.",
+      "Apakah Tuan sedang mengolah data untuk proyek riset?",
+      "Data ini sangat penting untuk pengambilan keputusan.",
+      "Kami harus membersihkan data sebelum digunakan.",
+      "Kebocoran data bisa sangat merugikan.",
+      "Big data menjadi tren di dunia teknologi.",
+      "Dia bekerja dengan data setiap hari.",
+      "Saya perlu lebih banyak data untuk validasi."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 0.9
+  },
+  {
+    "word": "file",
+    "definition": "kumpulan data yang disimpan dalam format tertentu di sistem penyimpanan komputer.",
+    "examples": [
+      "Saya menyimpan semua kode saya di dalam file ini.",
+      "Dia membuka file PDF yang dikirim temannya.",
+      "Kami perlu menghapus file-file yang tidak terpakai.",
+      "Apakah Tuan sudah backup semua file penting?",
+      "File ini terlalu besar untuk dikirim via email.",
+      "Saya tidak sengaja menghapus file penting.",
+      "File konfigurasi perlu diubah.",
+      "Berapa banyak file yang ada di folder ini?",
+      "Dia mengedit file teks biasa.",
+      "Saya mencari file yang hilang."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 0.9
+  },
+  {
+    "word": "server",
+    "definition": "sistem komputer atau program yang menyediakan layanan atau sumber daya kepada komputer lain (klien) melalui jaringan.",
+    "examples": [
+      "Website kami berjalan di server Linux.",
+      "Dia sedang merawat server database perusahaan.",
+      "Kami perlu menambah kapasitas server kami.",
+      "Apakah Tuan familiar dengan manajemen server?",
+      "Server down membuat website tidak bisa diakses.",
+      "Banyak aplikasi modern menggunakan server cloud.",
+      "Keamanan server adalah prioritas utama.",
+      "Dia melakukan konfigurasi server baru.",
+      "Server ini menyimpan semua data penting.",
+      "Perlu restart server setelah update."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 0.9
+  },
+  {
+    "word": "jaringan",
+    "definition": "kumpulan komputer yang saling terhubung untuk berbagi sumber daya dan informasi.",
+    "examples": [
+      "Saya sedang memeriksa koneksi jaringan internet.",
+      "Dia ahli dalam mengamankan jaringan komputer.",
+      "Kami membangun jaringan lokal di kantor.",
+      "Apakah Tuan punya masalah dengan jaringan Wi-Fi?",
+      "Jaringan nirkabel lebih praktis.",
+      "Serangan siber sering menargetkan jaringan.",
+      "Dia sedang belajar tentang arsitektur jaringan.",
+      "Jaringan sosial menghubungkan banyak orang.",
+      "Pastikan jaringanmu aman dari penyusup.",
+      "Saya tidak bisa mengakses file di jaringan kantor."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 0.9
+  },
+  {
+    "word": "algoritma",
+    "definition": "serangkaian instruksi atau aturan yang terdefinisi dengan baik untuk memecahkan masalah atau melakukan tugas komputasi.",
+    "examples": [
+      "Saya sedang mempelajari algoritma sorting yang berbeda.",
+      "Dia mengembangkan algoritma baru untuk kecerdasan buatan.",
+      "Kami menggunakan algoritma ini untuk mengoptimalkan pencarian.",
+      "Apakah Tuan sedang merancang algoritma untuk chatbot ini?",
+      "Algoritma ini sangat efisien dalam memproses data besar.",
+      "Memahami algoritma adalah kunci dalam pemrograman.",
+      "Dia menemukan bug dalam implementasi algoritma.",
+      "Algoritma Google selalu berubah.",
+      "Penting untuk memilih algoritma yang tepat untuk tugas tertentu.",
+      "Saya sedang belajar algoritma dasar."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 1.0
+  },
+  {
+    "word": "pengembangan",
+    "definition": "proses merancang, membangun, menguji, dan memelihara perangkat lunak atau sistem.",
+    "examples": [
+      "Saya bekerja di tim pengembangan perangkat lunak.",
+      "Dia fokus pada pengembangan aplikasi mobile.",
+      "Kami menggunakan metodologi agile dalam pengembangan proyek.",
+      "Bagaimana progres pengembangan chatbot ini, Tuan?",
+      "Pengembangan produk baru membutuhkan riset yang mendalam.",
+      "Dia terlibat dalam semua tahap pengembangan sistem.",
+      "Pengembangan diri sangat penting untuk karir.",
+      "Tim pengembangan kami sangat solid.",
+      "Investasi dalam pengembangan sangat penting.",
+      "Saya suka proses pengembangan dari ide sampai jadi."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 0.9
+  },
+  {
+    "word": "teknologi",
+    "definition": "aplikasi pengetahuan ilmiah untuk tujuan praktis, terutama dalam industri dan komersial.",
+    "examples": [
+      "Saya selalu tertarik pada teknologi terbaru.",
+      "Dia adalah seorang ahli teknologi informasi.",
+      "Teknologi telah mengubah cara kita hidup dan bekerja.",
+      "Apakah Tuan mengikuti perkembangan teknologi terkini?",
+      "Teknologi blockchain semakin populer.",
+      "Kami menggunakan teknologi canggih dalam riset kami.",
+      "Penting untuk memahami dampak teknologi pada masyarakat.",
+      "Teknologi hijau semakin dibutuhkan.",
+      "Dia mendalami teknologi AI dan machine learning.",
+      "Teknologi ini masih dalam tahap awal."
+    ],
+    "pos": "noun",
+    "category": "umum",
+    "weight": 1.0
+  },
+  {
+    "word": "sistem",
+    "definition": "kumpulan elemen yang saling berinteraksi untuk mencapai tujuan tertentu, seperti sistem operasi atau sistem informasi.",
+    "examples": [
+      "Sistem operasi Ubuntu saya bekerja dengan baik.",
+      "Dia sedang mempelajari sistem saraf manusia.",
+      "Kami perlu mengaudit sistem keamanan perusahaan.",
+      "Apakah Tuan sedang memperbaiki sistem di laptop?",
+      "Sistem pernapasan sangat penting untuk kehidupan.",
+      "Sistem komputer ini sangat kompleks.",
+      "Dia merancang sistem manajemen database baru.",
+      "Sistem ini membutuhkan pembaruan.",
+      "Kami akan menguji sistem baru besok.",
+      "Sistem pendidikan di negara ini perlu diperbaiki."
+    ],
+    "pos": "noun",
+    "category": "umum",
+    "weight": 0.9
+  },
+  {
+    "word": "virtual",
+    "definition": "sesuatu yang tidak ada secara fisik tetapi disimulasikan oleh komputer, seperti mesin virtual atau realitas virtual.",
+    "examples": [
+      "Saya menjalankan beberapa mesin virtual di laptop saya.",
+      "Dia suka bermain game virtual reality.",
+      "Kami mengadakan pertemuan virtual melalui video conference.",
+      "Apakah Tuan menggunakan lingkungan virtual untuk pengembangan?",
+      "Ini adalah tur virtual museum yang menarik.",
+      "Dia membuat asisten virtual pribadi.",
+      "Penting untuk memahami perbedaan antara dunia fisik dan virtual.",
+      "Kami sedang mengembangkan platform event virtual.",
+      "Lingkungan virtual membantu dalam pengujian perangkat lunak.",
+      "Saya menghadiri kuliah virtual kemarin."
+    ],
+    "pos": "adjective",
+    "category": "teknologi",
+    "weight": 0.8
+  },
+  {
+    "word": "internet",
+    "definition": "jaringan komputer global yang menghubungkan jutaan perangkat dan memungkinkan berbagi informasi.",
+    "examples": [
+      "Saya menggunakan internet setiap hari untuk bekerja.",
+      "Dia mencari informasi di internet.",
+      "Kami tidak bisa hidup tanpa internet sekarang.",
+      "Apakah Tuan punya koneksi internet yang cepat?",
+      "Internet membuka akses ke informasi tak terbatas.",
+      "Banyak bisnis beroperasi sepenuhnya melalui internet.",
+      "Saya belajar banyak hal dari internet.",
+      "Kecepatan internet di sini kurang bagus.",
+      "Mereka sedang membahas masa depan internet.",
+      "Saya mengirim email melalui internet."
+    ],
+    "pos": "noun",
+    "category": "teknologi",
+    "weight": 1.0
   }
 ]
