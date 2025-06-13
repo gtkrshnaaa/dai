@@ -1,3 +1,6 @@
+>Too in love with D to settle for anything else, even if it means challenging the world for it.
+>This is where my heart writes code, and my mind dreams of new intelligence.
+
 # DAI – DLang Artificial Intelligence Playground
 
 This repository serves as a centralized collection of my experimental AI projects, all written in the **D Programming Language**.
