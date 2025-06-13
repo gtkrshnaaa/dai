@@ -1,0 +1,182 @@
+[
+  {
+    "word": "makan",
+    "definition": "kegiatan memasukkan makanan ke dalam mulut dan menelannya.",
+    "examples": [
+      "Saya sedang makan nasi di dapur.",
+      "Dia makan siang bersama temannya.",
+      "Kami makan malam di restoran."
+    ],
+    "pos": "verb",
+    "category": "kegiatan",
+    "weight": 1.0
+  },
+  {
+    "word": "minum",
+    "definition": "kegiatan memasukkan cairan ke dalam mulut dan menelannya.",
+    "examples": [
+      "Dia minum air putih setelah lari.",
+      "Kami minum teh sambil berbincang.",
+      "Anak itu minum susu setiap pagi."
+    ],
+    "pos": "verb",
+    "category": "kegiatan",
+    "weight": 1.0
+  },
+  {
+    "word": "lari",
+    "definition": "bergerak cepat dengan kaki secara bergantian.",
+    "examples": [
+      "Dia lari di pagi hari.",
+      "Mereka lari mengelilingi lapangan.",
+      "Saya suka lari untuk olahraga."
+    ],
+    "pos": "verb",
+    "category": "kegiatan",
+    "weight": 1.0
+  },
+  {
+    "word": "belajar",
+    "definition": "proses memperoleh pengetahuan atau keterampilan.",
+    "examples": [
+      "Saya belajar bahasa pemrograman setiap hari.",
+      "Dia belajar untuk ujian matematika.",
+      "Kami belajar bersama di perpustakaan."
+    ],
+    "pos": "verb",
+    "category": "aktivitas",
+    "weight": 1.0
+  },
+  {
+    "word": "tidur",
+    "definition": "keadaan istirahat dengan mata tertutup dan kesadaran berkurang.",
+    "examples": [
+      "Saya tidur pukul sepuluh malam.",
+      "Anak itu sudah tidur sejak tadi.",
+      "Dia tidur siang setelah makan."
+    ],
+    "pos": "verb",
+    "category": "istirahat",
+    "weight": 0.9
+  },
+  {
+    "word": "main",
+    "definition": "melakukan aktivitas untuk hiburan atau kesenangan.",
+    "examples": [
+      "Anak-anak main bola di lapangan.",
+      "Kami main kartu di rumah.",
+      "Dia main gitar setiap sore."
+    ],
+    "pos": "verb",
+    "category": "hiburan",
+    "weight": 1.0
+  },
+  {
+    "word": "guru",
+    "definition": "orang yang memberikan pelajaran atau pendidikan.",
+    "examples": [
+      "Guru itu mengajar dengan sabar.",
+      "Saya bertanya kepada guru tentang tugas.",
+      "Guru sejarah menjelaskan masa kolonial."
+    ],
+    "pos": "noun",
+    "category": "profesi",
+    "weight": 0.9
+  },
+  {
+    "word": "teman",
+    "definition": "orang yang dikenal dekat dan biasanya memiliki hubungan akrab.",
+    "examples": [
+      "Saya pergi ke bioskop bersama teman.",
+      "Teman saya sangat baik dan lucu.",
+      "Kami berbagi cerita dengan teman dekat."
+    ],
+    "pos": "noun",
+    "category": "sosial",
+    "weight": 0.8
+  },
+  {
+    "word": "sedih",
+    "definition": "perasaan tidak bahagia karena sesuatu yang menyakitkan atau mengecewakan.",
+    "examples": [
+      "Saya merasa sedih karena kehilangan kucing.",
+      "Dia tampak sedih hari ini.",
+      "Kami mencoba menghibur teman yang sedang sedih."
+    ],
+    "pos": "adjective",
+    "category": "emosi",
+    "weight": 0.7
+  },
+  {
+    "word": "senang",
+    "definition": "perasaan bahagia dan puas.",
+    "examples": [
+      "Saya merasa senang bisa bertemu kamu.",
+      "Mereka senang bermain bersama.",
+      "Senang rasanya mendengar kabar baik."
+    ],
+    "pos": "adjective",
+    "category": "emosi",
+    "weight": 0.8
+  },
+  {
+    "word": "tidak",
+    "definition": "kata yang digunakan untuk menyatakan penolakan atau kebalikan.",
+    "examples": [
+      "Saya tidak suka hujan.",
+      "Dia tidak datang kemarin.",
+      "Mereka tidak bermain di luar."
+    ],
+    "pos": "negation",
+    "category": "fungsi",
+    "weight": 0.8
+  },
+  {
+    "word": "tinggal",
+    "definition": "berada atau menetap di suatu tempat untuk sementara atau lama.",
+    "examples": [
+      "Saya tinggal di Yogyakarta.",
+      "Dia tinggal bersama keluarga.",
+      "Kami ingin tinggal dekat sekolah."
+    ],
+    "pos": "verb",
+    "category": "habitasi",
+    "weight": 0.8
+  },
+  {
+    "word": "kerja",
+    "definition": "melakukan aktivitas untuk mendapatkan penghasilan atau tujuan tertentu.",
+    "examples": [
+      "Dia kerja di kantor.",
+      "Saya mulai kerja pagi hari.",
+      "Mereka bekerja sama dalam tim."
+    ],
+    "pos": "verb",
+    "category": "kegiatan",
+    "weight": 1.0
+  },
+  {
+    "word": "baca",
+    "definition": "melihat dan memahami tulisan yang tertulis.",
+    "examples": [
+      "Saya baca buku sejarah.",
+      "Dia suka baca koran.",
+      "Mereka membaca puisi di kelas."
+    ],
+    "pos": "verb",
+    "category": "kegiatan",
+    "weight": 1.0
+  },
+  {
+    "word": "tulis",
+    "definition": "membuat tulisan menggunakan alat tulis.",
+    "examples": [
+      "Saya menulis surat.",
+      "Dia suka menulis cerita.",
+      "Kami menulis catatan di kelas."
+    ],
+    "pos": "verb",
+    "category": "kegiatan",
+    "weight": 0.9
+  }
+]
