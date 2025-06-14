@@ -5,14 +5,12 @@ import std.algorithm;
 import std.conv;
 import std.json;
 import std.format;
-import std.range;
-import std.typecons;
-import std.typecons : Tuple;
 import std.math : abs;
-
+import std.range;
+import std.typecons : Tuple;
 import dictionary : Entry;
 
-/// tokenizer: lowercase + remove punctuation
+/// tokenizer: lowercase + strip punctuation
 string[] tokenize(string s) {
     immutable delims = " .,!?";
     string cur;
@@ -27,7 +25,7 @@ string[] tokenize(string s) {
     return toks;
 }
 
-/// semantic relationships and knowledge
+/// knowledge structures
 struct SemanticRelation { string relatedToken; double relevance; }
 struct Knowledge {
     string token;
@@ -36,8 +34,6 @@ struct Knowledge {
     string[][] exampleTokens;
     SemanticRelation[] related;
 }
-
-/// the model container
 struct Model { Knowledge[] knowledge; }
 
 Model trainModel(Entry[] dict) {
@@ -98,46 +94,31 @@ string[][] generateNgrams(string[] tokens, int minLen, int maxLen) {
 }
 
 string composeReply(Knowledge[] matched, string[] inputTokens) {
-    // pick best example sentence across matched entries
-    struct Candidate {
-        string[] sent;
-        int matchCount;
-        double score;
-    }
-    Candidate[] cands;
+    struct Fragment { string[] tokens; int matchCount; double score; }
+    Fragment[] fragments;
 
     foreach (k; matched) {
         foreach (sent; k.exampleTokens) {
-            int cnt = cast(int) sent.count!(t => inputTokens.canFind(t));
-            if (cnt == 0) continue;
-            cands ~= Candidate(sent, cnt, 0);
-        }
-    }
+            int mc = cast(int) sent.count!(t => inputTokens.canFind(t));
+            if (mc == 0) continue;
+            foreach (frag; generateNgrams(sent, 2, 6)) {
+                int m2 = cast(int) frag.count!(t => inputTokens.canFind(t));
+                if (m2 == 0) continue;
 
-    if (cands.empty) return "unknown";
-
-    // choose sentences with highest matchCount
-    auto bestCount = cands.map!(c => c.matchCount).maxElement;
-    cands = cands.filter!(c => c.matchCount == bestCount).array;
-
-    // now evaluate n-grams in each sentence
-    Tuple!(string[], double)[] bestFrags;
-    foreach (c; cands) {
-        auto ngrams = generateNgrams(c.sent, 2, 6);
-        foreach (frag; ngrams) {
-            double fragScore;
-            foreach (idx, t; frag) {
-                double posWeight = 1.0 - abs(idx - frag.length/2) / frag.length;
-                fragScore += tokenScore(t, matched) * posWeight;
+                double sc = m2 * 2.0; // match bonus
+                foreach (idx, t; frag) {
+                    double pw = 1.0 - abs(idx - frag.length/2) / frag.length;
+                    sc += tokenScore(t, matched) * pw;
+                }
+                if (frag.length >= 3) sc *= 1.2; // length bonus
+                fragments ~= Fragment(frag, m2, sc);
             }
-            bestFrags ~= tuple(frag, fragScore);
         }
     }
 
-    bestFrags.sort!((a, b) => b[1] < a[1]);
-    if (bestFrags.empty) return "unknown";
-
-    return bestFrags[0][0].join(" ");
+    if (fragments.empty) return "unknown";
+    fragments.sort!((a, b) => b.score < a.score);
+    return fragments[0].tokens.join(" ");
 }
 
 string generateSemanticReply(Model M, string input, ref string log) {
@@ -149,7 +130,7 @@ string generateSemanticReply(Model M, string input, ref string log) {
     }
     auto frag = composeReply(matched, toks);
     log = format(
-        "[Thinking]\n- Input: %s\n- Matched: %s\n- Output frag: %s\n\n",
+        "[Thinking]\n- Input: %s\n- Matched: %s\n- Response frag: %s\n\n",
         toks, matched.map!(k => k.token).to!string, frag
     );
     return frag;
