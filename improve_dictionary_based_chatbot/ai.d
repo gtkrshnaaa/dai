@@ -3,30 +3,34 @@ module ai;
 import std.array;
 import std.algorithm;
 import std.conv;
-import std.json;
 import std.format;
-import std.math : abs;
 import std.range;
-import std.typecons : Tuple;
+import std.math;
+import std.typecons;
 import dictionary : Entry;
 
-/// tokenizer: lowercase + strip punctuation
+/// Tokenize string into lowercase words, removing punctuation
 string[] tokenize(string s) {
     immutable delims = " .,!?";
     string cur;
-    string[] toks;
+    string[] tokens;
     foreach (c; s) {
         if (delims.canFind(c)) {
-            if (!cur.empty) toks ~= cur;
+            if (!cur.empty) tokens ~= cur;
             cur = "";
-        } else cur ~= (c >= 'A' && c <= 'Z' ? cast(char)(c + 32) : c);
+        } else {
+            cur ~= (c >= 'A' && c <= 'Z' ? cast(char)(c + 32) : c);
+        }
     }
-    if (!cur.empty) toks ~= cur;
-    return toks;
+    if (!cur.empty) tokens ~= cur;
+    return tokens;
 }
 
-/// knowledge structures
-struct SemanticRelation { string relatedToken; double relevance; }
+/// Semantic knowledge structures
+struct SemanticRelation {
+    string relatedToken;
+    double relevance;
+}
 struct Knowledge {
     string token;
     double weight;
@@ -34,43 +38,59 @@ struct Knowledge {
     string[][] exampleTokens;
     SemanticRelation[] related;
 }
-struct Model { Knowledge[] knowledge; }
+struct Model {
+    Knowledge[] knowledge;
+}
 
+/// Train model from dictionary
 Model trainModel(Entry[] dict) {
     Model M;
-    foreach (e; dict) {
-        auto defT = tokenize(e.definition);
-        string[][] exT;
-        foreach (ex; e.examples) exT ~= tokenize(ex);
-        foreach (t; tokenize(e.word))
-            M.knowledge ~= Knowledge(t, e.weight, defT, exT, []);
+    foreach (entry; dict) {
+        auto defTokens = tokenize(entry.definition);
+        string[][] exampleTokens;
+        foreach (ex; entry.examples)
+            exampleTokens ~= tokenize(ex);
+
+        foreach (t; tokenize(entry.word)) {
+            M.knowledge ~= Knowledge(t, entry.weight, defTokens, exampleTokens, []);
+        }
     }
     buildRelations(M.knowledge);
     return M;
 }
 
+/// Build relations between tokens using definitions and examples
 void buildRelations(ref Knowledge[] knowledge) {
     foreach (i, k; knowledge) {
-        string[] ctx = k.definitionTokens ~ k.exampleTokens.joiner.array;
+        string[] context = k.definitionTokens ~ k.exampleTokens.joiner.array;
         int[string] counts;
-        foreach (w; ctx) if (w != k.token) counts[w]++;
+        foreach (w; context)
+            if (w != k.token) counts[w]++;
+
         SemanticRelation[] rels;
-        foreach (w, c; counts) rels ~= SemanticRelation(w, cast(double)c / ctx.length);
+        foreach (w, c; counts)
+            rels ~= SemanticRelation(w, cast(double)c / context.length);
         knowledge[i].related = rels;
     }
 }
 
+/// Match input tokens with known tokens or semantic relations
 Knowledge[] matchTokens(Model M, string[] input) {
     Knowledge[] matched;
     foreach (t; input) {
         auto found = M.knowledge.find!(k => k.token == t);
         if (found) matched ~= *found.ptr;
-        else foreach (k; M.knowledge) foreach (r; k.related)
-            if (r.relatedToken == t && r.relevance > 0.3) matched ~= k;
+        else {
+            foreach (k; M.knowledge)
+                foreach (r; k.related)
+                    if (r.relatedToken == t && r.relevance > 0.3)
+                        matched ~= k;
+        }
     }
-    return matched.uniq.array;
+    return matched;
 }
 
+/// Score a token across all matched entries
 double tokenScore(string token, Knowledge[] matched) {
     double score = 0;
     foreach (k; matched) {
@@ -83,55 +103,76 @@ double tokenScore(string token, Knowledge[] matched) {
     return score;
 }
 
-string[][] generateNgrams(string[] tokens, int minLen, int maxLen) {
+/// Generate n-gram fragments from token array
+string[][] generateNgrams(string[] tokens, int minLength, int maxLength) {
     string[][] ngrams;
-    foreach (n; minLen .. maxLen + 1) {
+    foreach (n; minLength .. maxLength + 1) {
         if (tokens.length < n) continue;
-        foreach (i; 0 .. tokens.length - n + 1)
-            ngrams ~= tokens[i .. i + n].array;
+        foreach (i; 0 .. tokens.length - n + 1) {
+            ngrams ~= tokens[i .. i + n];
+        }
     }
     return ngrams;
 }
 
-string composeReply(Knowledge[] matched, string[] inputTokens) {
-    struct Fragment { string[] tokens; int matchCount; double score; }
-    Fragment[] fragments;
+/// Score n-gram fragment based on token match and structure
+double scoreFragment(string[] frag, string[] inputTokens, Knowledge[] matched) {
+    double tokenScoreSum = 0;
+    double positionScore = 0;
+    double structureBonus = 0;
 
-    foreach (k; matched) {
-        foreach (sent; k.exampleTokens) {
-            int mc = cast(int) sent.count!(t => inputTokens.canFind(t));
-            if (mc == 0) continue;
-            foreach (frag; generateNgrams(sent, 2, 6)) {
-                int m2 = cast(int) frag.count!(t => inputTokens.canFind(t));
-                if (m2 == 0) continue;
+    foreach (t; frag)
+        tokenScoreSum += tokenScore(t, matched);
 
-                double sc = m2 * 2.0; // match bonus
-                foreach (idx, t; frag) {
-                    double pw = 1.0 - abs(idx - frag.length/2) / frag.length;
-                    sc += tokenScore(t, matched) * pw;
-                }
-                if (frag.length >= 3) sc *= 1.2; // length bonus
-                fragments ~= Fragment(frag, m2, sc);
-            }
+    // Boost if tokens are centered around match
+    foreach (idx, t; frag) {
+        if (inputTokens.canFind(t)) {
+            double center = frag.length / 2.0;
+            positionScore += 1.0 - abs(idx - center) / frag.length;
         }
     }
 
-    if (fragments.empty) return "unknown";
-    fragments.sort!((a, b) => b.score < a.score);
-    return fragments[0].tokens.join(" ");
+    // Small bonus for known sentence-like patterns
+    if (frag.length > 3 && frag[0] == "saya") structureBonus += 0.3;
+    if (frag.canFind("dan")) structureBonus += 0.2;
+    if (frag[$ - 1] == "guru" || frag[$ - 1] == "teman") structureBonus += 0.2;
+
+    return tokenScoreSum + positionScore + structureBonus;
 }
 
+/// Compose a reply from scored n-gram fragments
+string composeReply(Knowledge[] matched, string[] inputTokens) {
+    string[][] candidates;
+    foreach (k; matched)
+        foreach (ex; k.exampleTokens)
+            candidates ~= generateNgrams(ex, 3, 10);
+
+    Tuple!(string[], double)[] scored;
+    foreach (frag; candidates) {
+        double score = scoreFragment(frag, inputTokens, matched);
+        scored ~= tuple(frag, score);
+    }
+
+    scored.sort!((a, b) => b[1] < a[1]);
+
+    if (scored.empty) return "unknown";
+    return scored[0][0].join(" ");
+}
+
+/// Generate semantic reply
 string generateSemanticReply(Model M, string input, ref string log) {
-    auto toks = tokenize(input);
-    auto matched = matchTokens(M, toks);
+    auto tokens = tokenize(input);
+    auto matched = matchTokens(M, tokens);
     if (matched.empty) {
         log = "[Thinking] no known tokens.\n";
         return "unknown";
     }
-    auto frag = composeReply(matched, toks);
+
+    auto result = composeReply(matched, tokens);
+
     log = format(
         "[Thinking]\n- Input: %s\n- Matched: %s\n- Response frag: %s\n\n",
-        toks, matched.map!(k => k.token).to!string, frag
+        tokens, matched.map!(k => k.token).to!string, result
     );
-    return frag;
+    return result;
 }
