@@ -8,28 +8,27 @@ import std.format;
 import std.range;
 import std.typecons;
 import std.typecons : Tuple;
+import std.math : abs;
+
 import dictionary : Entry;
 
-/// Simple tokenizer: lowercase and strip punctuation
+/// tokenizer: lowercase + remove punctuation
 string[] tokenize(string s) {
     immutable delims = " .,!?";
     string cur;
-    string[] tokens;
+    string[] toks;
     foreach (c; s) {
         if (delims.canFind(c)) {
-            if (!cur.empty) tokens ~= cur;
+            if (!cur.empty) toks ~= cur;
             cur = "";
         } else cur ~= (c >= 'A' && c <= 'Z' ? cast(char)(c + 32) : c);
     }
-    if (!cur.empty) tokens ~= cur;
-    return tokens;
+    if (!cur.empty) toks ~= cur;
+    return toks;
 }
 
-/// Semantic knowledge base per token
-struct SemanticRelation {
-    string relatedToken;
-    double relevance;
-}
+/// semantic relationships and knowledge
+struct SemanticRelation { string relatedToken; double relevance; }
 struct Knowledge {
     string token;
     double weight;
@@ -38,60 +37,44 @@ struct Knowledge {
     SemanticRelation[] related;
 }
 
-/// Model: a collection of token knowledge
-struct Model {
-    Knowledge[] knowledge;
-}
+/// the model container
+struct Model { Knowledge[] knowledge; }
 
-/// Train the model from dictionary entries
 Model trainModel(Entry[] dict) {
     Model M;
-    foreach (entry; dict) {
-        auto defTokens = tokenize(entry.definition);
-        string[][] exampleTokens;
-        foreach (ex; entry.examples)
-            exampleTokens ~= tokenize(ex);
-
-        foreach (t; tokenize(entry.word)) {
-            M.knowledge ~= Knowledge(t, entry.weight, defTokens, exampleTokens, []);
-        }
+    foreach (e; dict) {
+        auto defT = tokenize(e.definition);
+        string[][] exT;
+        foreach (ex; e.examples) exT ~= tokenize(ex);
+        foreach (t; tokenize(e.word))
+            M.knowledge ~= Knowledge(t, e.weight, defT, exT, []);
     }
     buildRelations(M.knowledge);
     return M;
 }
 
-/// Build semantic relationships between tokens
 void buildRelations(ref Knowledge[] knowledge) {
     foreach (i, k; knowledge) {
-        string[] context = k.definitionTokens ~ k.exampleTokens.joiner.array;
+        string[] ctx = k.definitionTokens ~ k.exampleTokens.joiner.array;
         int[string] counts;
-        foreach (w; context)
-            if (w != k.token) counts[w]++;
-
+        foreach (w; ctx) if (w != k.token) counts[w]++;
         SemanticRelation[] rels;
-        foreach (w, c; counts)
-            rels ~= SemanticRelation(w, cast(double)c / context.length);
+        foreach (w, c; counts) rels ~= SemanticRelation(w, cast(double)c / ctx.length);
         knowledge[i].related = rels;
     }
 }
 
-/// Match tokens with semantic fallback
 Knowledge[] matchTokens(Model M, string[] input) {
     Knowledge[] matched;
     foreach (t; input) {
         auto found = M.knowledge.find!(k => k.token == t);
         if (found) matched ~= *found.ptr;
-        else {
-            foreach (k; M.knowledge)
-                foreach (r; k.related)
-                    if (r.relatedToken == t && r.relevance > 0.3)
-                        matched ~= k;
-        }
+        else foreach (k; M.knowledge) foreach (r; k.related)
+            if (r.relatedToken == t && r.relevance > 0.3) matched ~= k;
     }
-    return matched;
+    return matched.uniq.array;
 }
 
-/// Score how relevant a token is across matches
 double tokenScore(string token, Knowledge[] matched) {
     double score = 0;
     foreach (k; matched) {
@@ -104,50 +87,70 @@ double tokenScore(string token, Knowledge[] matched) {
     return score;
 }
 
-/// Create n-gram fragments from tokens
-string[][] generateNgrams(string[] tokens, int minN, int maxN) {
-    string[][] result;
-    foreach (n; minN .. maxN + 1)
+string[][] generateNgrams(string[] tokens, int minLen, int maxLen) {
+    string[][] ngrams;
+    foreach (n; minLen .. maxLen + 1) {
+        if (tokens.length < n) continue;
         foreach (i; 0 .. tokens.length - n + 1)
-            result ~= tokens[i .. i + n].array;
-    return result;
+            ngrams ~= tokens[i .. i + n].array;
+    }
+    return ngrams;
 }
 
-/// Compose reply by selecting most relevant example fragment
-string composeReply(Knowledge[] matched) {
-    string[][] candidates;
-    foreach (k; matched)
-        foreach (ex; k.exampleTokens)
-            candidates ~= generateNgrams(ex, 2, 6);
+string composeReply(Knowledge[] matched, string[] inputTokens) {
+    // pick best example sentence across matched entries
+    struct Candidate {
+        string[] sent;
+        int matchCount;
+        double score;
+    }
+    Candidate[] cands;
 
-    Tuple!(string[], double)[] scored;
-    foreach (frag; candidates) {
-        double score = 0;
-        foreach (t; frag)
-            score += tokenScore(t, matched);
-        scored ~= tuple(frag, score);
+    foreach (k; matched) {
+        foreach (sent; k.exampleTokens) {
+            int cnt = cast(int) sent.count!(t => inputTokens.canFind(t));
+            if (cnt == 0) continue;
+            cands ~= Candidate(sent, cnt, 0);
+        }
     }
 
-    scored.sort!((a, b) => b[1] < a[1]);
+    if (cands.empty) return "unknown";
 
-    if (scored.empty) return "unknown";
-    return scored[0][0].join(" ");
+    // choose sentences with highest matchCount
+    auto bestCount = cands.map!(c => c.matchCount).maxElement;
+    cands = cands.filter!(c => c.matchCount == bestCount).array;
+
+    // now evaluate n-grams in each sentence
+    Tuple!(string[], double)[] bestFrags;
+    foreach (c; cands) {
+        auto ngrams = generateNgrams(c.sent, 2, 6);
+        foreach (frag; ngrams) {
+            double fragScore;
+            foreach (idx, t; frag) {
+                double posWeight = 1.0 - abs(idx - frag.length/2) / frag.length;
+                fragScore += tokenScore(t, matched) * posWeight;
+            }
+            bestFrags ~= tuple(frag, fragScore);
+        }
+    }
+
+    bestFrags.sort!((a, b) => b[1] < a[1]);
+    if (bestFrags.empty) return "unknown";
+
+    return bestFrags[0][0].join(" ");
 }
 
-/// Generate semantic reply using only dictionary context
 string generateSemanticReply(Model M, string input, ref string log) {
-    auto tokens = tokenize(input);
-    auto matched = matchTokens(M, tokens);
+    auto toks = tokenize(input);
+    auto matched = matchTokens(M, toks);
     if (matched.empty) {
         log = "[Thinking] no known tokens.\n";
         return "unknown";
     }
-
-    auto result = composeReply(matched);
-
+    auto frag = composeReply(matched, toks);
     log = format(
-        "[Thinking]\n- Input tokens: %s\n- Matched: %s\n- Response frag: %s\n\n",
-        tokens, matched.map!(k => k.token).to!string, result
+        "[Thinking]\n- Input: %s\n- Matched: %s\n- Output frag: %s\n\n",
+        toks, matched.map!(k => k.token).to!string, frag
     );
-    return result;
+    return frag;
 }
